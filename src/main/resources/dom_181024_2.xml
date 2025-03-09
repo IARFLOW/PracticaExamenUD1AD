@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Pedidos>
+    <Pedido numpedido="1" FechaPedido="15/10/24">
+        <Cliente>Alejandro Magno</Cliente>
+        <detalle num="1">
+            <producto precio="2">producto1</producto> 
+            <cantidad>3</cantidad>
+        </detalle>
+        <detalle num="2">
+            <producto precio="4">producto2</producto> 
+            <cantidad>3</cantidad>
+            <comentario>articulo peligroso</comentario>
+        </detalle>
+        <iva>4</iva>
+        <observaciones>El cliente quiere el segundo producto en embalaje especial</observaciones>
+        <observaciones>Solicita que se le envie lo antes posible</observaciones>
+    </Pedido>
+    <Pedido numpedido="2" FechaPedido="17/10/24">
+        <Cliente>Julio Cesar</Cliente>
+        <detalle num="1">
+            <producto precio="3.3">producto3</producto> 
+            <cantidad>8</cantidad>
+        </detalle>
+        <iva>4</iva>
+        <facturado/>
+    </Pedido>
+    <Pedido numpedido="3" FechaPedido="19/10/24">
+        <Cliente>Gengis Khan</Cliente>
+        <detalle num="1">
+            <producto precio="2">producto1</producto> 
+            <cantidad>3</cantidad>
+        </detalle>
+        <detalle num="2">
+            <producto precio="3">producto3</producto> 
+            <cantidad>1</cantidad>
+        </detalle>
+        <iva>21</iva>
+        <observaciones>El cliente quiere que se le envie el pedido a la segunda direccion indicada</observaciones>
+        <facturado/>
+    </Pedido>
+    <Pedido numpedido="4" FechaPedido="15/10/24">
+        <Cliente>Napoleon Bonaparte</Cliente>
+        <detalle num="1">
+            <producto precio="4">producto2</producto> 
+            <cantidad>5</cantidad>
+        </detalle>
+        <iva>10</iva>
+    </Pedido>
+</Pedidos>
