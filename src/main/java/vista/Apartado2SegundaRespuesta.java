@@ -43,7 +43,7 @@ public class Apartado2SegundaRespuesta {
             // Crear fichero de objetos si no existe
             if (!fichObj.exists())
                 fichObj.createNewFile();
-
+            
             // Leer datos del fichero de datos y escribir objetos
             // Utiliza try-with-resources para cerrar automáticamente los recursos
             try (DataInputStream dis = new DataInputStream(new FileInputStream(fich)); // Para leer datos primitivos
