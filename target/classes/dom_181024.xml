@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Pedidos>
+    <Pedido numero="1" fecha="15/10/24">
+        <cliente>Alejandro Magno</cliente>
+        <producto precio="2">producto1</producto>
+        <cantidad>3</cantidad>
+        <iva>4</iva>
+        <observacion>Embalaje especial</observacion>
+        <facturado/>
+    </Pedido>
+    <Pedido numero="2" fecha="17/10/24">
+        <cliente>Julio Cesar</cliente>
+        <producto precio="3.3">producto3</producto>
+        <cantidad>8</cantidad>
+        <iva>4</iva>
+    </Pedido>
+    <Pedido numero="3" fecha="19/10/24">
+        <cliente>Gengis Khan</cliente>
+        <producto precio="2">producto1</producto>
+        <cantidad>3</cantidad>
+        <iva>21</iva>
+        <observacion>Envío a segunda dirección</observacion>
+        <observacion>Solicitud urgente</observacion>
+    </Pedido>
+</Pedidos>

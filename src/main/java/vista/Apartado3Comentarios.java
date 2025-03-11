@@ -14,7 +14,7 @@ import java.util.Scanner;         // Para leer entrada del usuario
  * - Cada registro en un RAF tiene un tamaño fijo, lo que nos permite calcular la posición exacta
  *   de cualquier registro conociendo su índice.
  * - En este caso, cada registro de empleado ocupa 76 bytes en total:
- *   - ID (int): 4 bytes
+ *   - ID (int): 4 bytesss
  *   - Nombre (String de 30 chars): 30 chars * 2 bytes = 60 bytes
  *   - Departamento (int): 4 bytes
  *   - Salario (double): 8 bytes

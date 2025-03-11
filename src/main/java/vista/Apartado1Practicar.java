@@ -79,7 +79,7 @@ public class Apartado1Practicar {
             }
 
             // Muestra un mensaje de éxito
-            System.out.println("Listado generado generado correctamente en: " + fich.getAbsolutePath());
+            System.out.println("Listado generado correctamente en: " + fich.getAbsolutePath());
 
         } catch (IOException e) {
             // Captura y muestra errores de entrada/salida
