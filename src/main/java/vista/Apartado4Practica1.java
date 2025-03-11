@@ -32,7 +32,7 @@ public class Apartado4Practica1 {
 
     public static void main(String[] args) {
         try {
-            File ficheroXML = new File("./src/main/resources/dom_181024_2");
+            File ficheroXML = new File("./src/main/resources/dom_181024.xml");
             if (!ficheroXML.exists()) {
                 System.out.println("Error: El fichero dom_181024_2 no se encuentra");
                 return;
@@ -45,13 +45,37 @@ public class Apartado4Practica1 {
             
             System.out.println("Elemento raiz: " + doc.getDocumentElement().getNodeName());
             System.out.println("-------------------------");
-            NodeList nodosPedido = doc.getElementsByTagName("Pedido");
+            NodeList nList = doc.getElementsByTagName("Pedido");
             
-            for (int i = 0; i < nodosPedido.getLength(); i++) {
-                Node nodoPedido = nodosPedido.item(i);
-                if (nodoPedido.getNodeType() == Node.ELEMENT_NODE) {
-                    Element elementoPedido = (Element) nodoPedido;
-                    System.out.println("\nPedido " + (i+1) + ":");
+            for (int temp = 0; temp < nList.getLength(); temp++) {
+                Node nNode = nList.item(temp);
+                if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+                    Element eElementoPedido = (Element) nNode;
+                    System.out.println(getAtributos(eElementoPedido));
+                    
+                    System.out.print("\tcliente: " + eElementoPedido.getElementsByTagName("cliente").item(0).getTextContent().trim());
+                    System.out.print("\tproducto:" + eElementoPedido.getElementsByTagName("producto").item(0).getTextContent().trim());
+                    System.out.print("\tcantidad: " + eElementoPedido.getElementsByTagName("cantidad").item(0).getTextContent().trim());
+                    System.out.print("\tiva " + eElementoPedido.getElementsByTagName("iva").item(0).getTextContent().trim() + "%");
+                    
+                    if (eElementoPedido.getElementsByTagName("producto").item(0).hasAttributes()) {
+                        String cadena = "";
+                        for (int j = 0; j < eElementoPedido.getElementsByTagName("producto").item(0).getAttributes().getLength(); j++) {
+                            cadena += eElementoPedido.getElementsByTagName("producto").item(0).getAttributes().item(j).getNodeName() + "="
+                                    + eElementoPedido.getElementsByTagName("producto").item(0).getAttributes().item(j).getNodeValue() + " ";
+                        }
+                        System.out.println(" Atributos de " + eElementoPedido.getElementsByTagName("producto").item(0).getNodeName()
+                        +  "-->" + cadena);
+                    }
+                    System.out.println();
+                    for (int j = 0; j < eElementoPedido.getElementsByTagName("observacion").getLength(); j++) {
+                        System.out.println("\tobservacion " + j + ": "
+                        + eElementoPedido.getElementsByTagName("observacion").item(j).getTextContent().trim());
+                    }
+                    if (eElementoPedido.getElementsByTagName("facturado").getLength() > 0) {
+                        System.out.println("\tEs faturado");
+                    }
+                    System.out.println();
                 }
             }
 

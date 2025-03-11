@@ -52,41 +52,44 @@ public class Apartado4VersionMiaXMLnuevo {
                 if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                     Element eElementPedido = (Element) nNode;
                     
-                    // Mostrar información del pedido
-                    System.out.println("PEDIDO " + (temp+1) + ":");
+                    // Punto 1: Mostrar atributos del pedido (exactamente como la profesora)
                     System.out.println(getAtributos(eElementPedido));
                     
-                    // Acceso directo sin verificaciones - estilo de la profesora
-                    System.out.print("\tCliente: " + eElementPedido.getElementsByTagName("cliente").item(0).getTextContent().trim());
+                    // Acceso directo a elementos (como la profesora, sin verificaciones)
+                    System.out.print("\tcliente:" + eElementPedido.getElementsByTagName("cliente").item(0).getTextContent().trim());
+                    System.out.print("\tproducto:" + eElementPedido.getElementsByTagName("producto").item(0).getTextContent().trim());
+                    System.out.print("\tcantidad:" + eElementPedido.getElementsByTagName("cantidad").item(0).getTextContent().trim());
+                    System.out.print("\tiva:" + eElementPedido.getElementsByTagName("iva").item(0).getTextContent().trim() + "%");
                     
-                    // Para producto, obtenemos el elemento para acceder al atributo precio
-                    Element producto = (Element) eElementPedido.getElementsByTagName("producto").item(0);
-                    System.out.print("\tProducto: " + producto.getTextContent().trim());
-                    System.out.print(" (Precio: " + producto.getAttribute("precio") + ")");
-                    
-                    System.out.print("\tCantidad: " + eElementPedido.getElementsByTagName("cantidad").item(0).getTextContent().trim());
-                    System.out.println("\tIVA: " + eElementPedido.getElementsByTagName("iva").item(0).getTextContent().trim() + "%");
-                    
-                    // Para elementos que pueden repetirse - como en Ejercicio20
-                    NodeList observaciones = eElementPedido.getElementsByTagName("observacion");
-                    if (observaciones.getLength() > 0) {
-                        System.out.println("\tObservaciones:");
-                        for (int j = 0; j < observaciones.getLength(); j++) {
-                            System.out.println("\t\t- " + observaciones.item(j).getTextContent().trim());
+                    // Punto 2: Verificar atributos del elemento producto (exactamente como ella hace con apodo)
+                    if (eElementPedido.getElementsByTagName("producto").item(0).hasAttributes()) {
+                        String cadena = "";
+                        for (int j = 0; j < eElementPedido.getElementsByTagName("producto").item(0).getAttributes().getLength(); j++) {
+                            cadena += eElementPedido.getElementsByTagName("producto").item(0).getAttributes().item(j).getNodeName() + "="
+                                    + eElementPedido.getElementsByTagName("producto").item(0).getAttributes().item(j).getNodeValue() + " ";
                         }
+                        System.out.print(" Atributos de  " + eElementPedido.getElementsByTagName("producto").item(0).getNodeName() 
+                                      + "--> " + cadena);
                     }
                     
-                    // Para elemento opcional - como en Ejercicio20
+                    System.out.println(); // Nueva línea después de la información básica
+                    
+                    // Punto 3: Para elementos repetidos (como marcas en su ejemplo)
+                    for (int j = 0; j < eElementPedido.getElementsByTagName("observacion").getLength(); j++) {
+                        System.out.print("\tobservacion " + j + ": " 
+                                + eElementPedido.getElementsByTagName("observacion").item(j).getTextContent().trim());
+                    }
+                    
+                    // Punto 4: Para elemento opcional (como delegado en su ejemplo)
                     if (eElementPedido.getElementsByTagName("facturado").getLength() > 0) {
-                        System.out.println("\tEstado: Facturado");
+                        System.out.print("\tEs facturado");
                     }
                     
-                    System.out.println();
+                    System.out.println(); // Línea en blanco entre pedidos
                 }
             }
             
         } catch (Exception e) {
-            System.out.println("Error: ");
             e.printStackTrace();
         }
     }
